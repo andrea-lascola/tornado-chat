@@ -25,33 +25,35 @@ The app is still under development, a lot of work have to be done before it can 
 
 # Installation
 
-    - docker-compose up
+    docker-compose up
     
 or just:
 
-    - pip install -r requirements.txt
-    - python src/app.py
-    - (you need a redis available at localhost:6379 and a mongodb available at localhost:27017)        
+    pip install -r requirements.txt
+    python src/app.py
+    (you need a redis available at localhost:6379 and a mongodb available at localhost:27017)        
 
 
 # Pages:
-chat : http://localhost:8887/?user=andrew&channel=all (replace user and channel as you want)
-dashboard : http://localhost:8887/dashboard (protected by a login page just to test the auth with tornado)
+
+    chat : http://localhost:8887/?user=andrew&channel=all (replace user and channel as you want)
+
+    dashboard : http://localhost:8887/dashboard (protected by a login page just to test the auth with tornado)
 
 
 # Todo
     
 App
 
-    - Better autentication
-    - pages navigation
-    - use tornado widget UI : (http://www.tornadoweb.org/en/stable/guide/templates.html) 
+    [ ] Better autentication
+    [ ] pages navigation
+    [ ] use tornado widget UI : (http://www.tornadoweb.org/en/stable/guide/templates.html) 
     
 
 Charts
 
-    V [Bar] Messages per day
-    - [List] last x messages
-    - [List] last x accesses
-    - Widget colors
-    - [Number] medium chat duration (per user) (connect date - disconnect date)
+    [V] [Bar] Messages per day
+    [ ] [List] last x messages
+    [ ] [List] last x accesses
+    [ ] Widget colors
+    [ ] [Number] medium chat duration (per user) (connect date - disconnect date)
