@@ -1,19 +1,23 @@
 A Simple python-tornado Chat using WebSocket - Mongodb - Redis(ToRedis)
 
 The purpose of the project is to test these functionalities:
-Tornado:
+### Tornado
+
     - WebSocket
     - AsyncDb connection(In progress)
     - UiWidgets (Todo)
     - Authentication (In progress)
-Redis
+### Redis
+
     - publish-subscribe api (every new connection subscribe to channel waiting for messages)
-MongoDb
+### MongoDb
+
     - Storage(connection/disconnection - messages)
     - Server side aggregations
     - Replica Set (Todo)
     - Sharded (Todo)
-Plotly
+### Plotly
+
     - Basic Charting (In progress)
    
 The app is still under development, a lot of work have to be done before it can be considered an alpha version
