@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "8887:8887"
+    command: python app.py
+#    depends_on:
+#      - mongo-up
+    links:
+      - mongo
+  redis:
+    image: "redis"
+  mongo:
+    image: mongo:latest
+#    container_name: "mongo-up"
+#    volumes:
+#        - ./data/db:/data/db
+    ports:
+      - 27017:27017

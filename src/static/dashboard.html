@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+
+    
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- libs -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+
+
+    <style>
+    .card-body{
+        padding: 0 !important;
+    }
+    
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>Chat Statistics</h1>
+        <hr>
+        <hr>
+            <div class="container">
+                {% for row in graphs %}
+                    <div class="row">
+                        {% for component in row %}
+                            <div class="col" style="width:20%">
+                                    <div class="card"> <!--style="height:300px">-->
+                                        <div class="card-header">
+                                                {{component["layout"].get('title')}}
+                                        </div>
+                                        <div class="card-block">
+                                            
+                                            <div class="card-body" id={{component["id"]}}>
+                                                <!--This is some text within a card body.-->
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        {% end %}   
+                    </div>
+                    <hr>
+                {% end %}
+            </div>
+        <hr>
+
+    </div>
+    
+
+
+    <script type="text/javascript">
+
+        var graphs = {% raw graphJSON %};
+        
+        /*for(var rows in graphs) {
+
+            for(var component in graphs[rows]) {
+            debugger;
+            Plotly.plot(graphs[i].id,
+                        graphs[i].data,
+                        graphs[i].layout || {});
+        }*/
+
+        graphs.forEach(function(row) {
+            row.forEach(function(component) {
+                Plotly.plot(component.id,
+                            component.data,
+                            component.layout || {});
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>
