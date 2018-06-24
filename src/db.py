@@ -9,7 +9,7 @@ from data import fake
 
 class Db(object):
     def __init__(self, client=MongoClient, address=None, port=None):
-        self.address = address or 'localhost'#'127.0.0.1'
+        self.address = address or 'mongodb'#'127.0.0.1'
         self.port = port or 27017
         self.client = client
 

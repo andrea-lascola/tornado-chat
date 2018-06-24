@@ -70,7 +70,7 @@ class RedisWebSocket(tornado.websocket.WebSocketHandler):
 
         # subscribe to channel
         self.client = ToRedisClient()
-        self.client.connect()
+        self.client.connect(host="redis")
         self.client.subscribe(self.channel, callback=self.on_receive)
 
     def on_receive(self,msg):
@@ -84,7 +84,7 @@ class RedisWebSocket(tornado.websocket.WebSocketHandler):
         self.application.db.messages.insert_one(entity.__dict__)
 
         conn = ToRedisClient()
-        conn.connect()
+        conn.connect(host="redis")
 
         def publish_message(channel,message):
             conn.publish(channel,message)
